@@ -64,6 +64,38 @@ public:
         }
         return result;
     }
+
+    // Number of Steps to Reduce a Number to Zero - LeetCode 1342
+    // https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero
+    // Time Complexity: O(log n) - where n is the input number
+    // Space Complexity: O(1) - using only a constant amount of extra space
+    int numberOfSteps(int num)
+    {
+        int steps = 0;
+        while (num > 0)
+        {
+            if (num % 2 == 0)
+            {
+                num /= 2;
+            }
+            else
+            {
+                num -= 1;
+            }
+            steps++;
+        }
+        return steps;
+
+        // Recursive Approach
+        // Time Complexity: O(log n) - where n is the input number
+        // Space Complexity: O(log n) - due to the recursion stack
+        // if (num == 0) return 0;
+        // if (num % 2 == 0) {
+        //     return 1 + numberOfSteps(num / 2);
+        // } else {
+        //     return 1 + numberOfSteps(num - 1);
+        // }
+    }
 };
 
 int main()
@@ -88,7 +120,7 @@ int main()
 
     int richestWealth = solution.maximumWealth(accounts);
     cout << "\nRichest Customer Wealth: " << richestWealth << endl;
-    
+
     // Fizz Buzz
     vector<string> fizzBuzzResult = solution.fizzBuzz(15);
 
@@ -97,6 +129,10 @@ int main()
     {
         cout << s << endl;
     }
+
+    // Number of Steps to Reduce a Number to Zero
+    int steps = solution.numberOfSteps(14);
+    cout << "Number of Steps to Reduce 14 to Zero: " << steps << endl;
 
     return 0;
 }
