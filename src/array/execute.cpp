@@ -35,6 +35,35 @@ public:
         }
         return maxWealth;
     }
+
+    // Fizz Buzz - LeetCode 412
+    // https://leetcode.com/problems/fizz-buzz/
+    // Time Complexity: O(n) - where n is the input number
+    // Space Complexity: O(1) - excluding the space required for the output list
+    vector<string> fizzBuzz(int n)
+    {
+        vector<string> result;
+        for (int i = 1; i <= n; i++)
+        {
+            if (i % 3 == 0 && i % 5 == 0)
+            {
+                result.push_back("FizzBuzz");
+            }
+            else if (i % 3 == 0)
+            {
+                result.push_back("Fizz");
+            }
+            else if (i % 5 == 0)
+            {
+                result.push_back("Buzz");
+            }
+            else
+            {
+                result.push_back(to_string(i));
+            }
+        }
+        return result;
+    }
 };
 
 int main()
@@ -59,6 +88,15 @@ int main()
 
     int richestWealth = solution.maximumWealth(accounts);
     cout << "\nRichest Customer Wealth: " << richestWealth << endl;
+    
+    // Fizz Buzz
+    vector<string> fizzBuzzResult = solution.fizzBuzz(15);
+
+    cout << "Fizz Buzz Result:" << endl;
+    for (const string &s : fizzBuzzResult)
+    {
+        cout << s << endl;
+    }
 
     return 0;
 }
